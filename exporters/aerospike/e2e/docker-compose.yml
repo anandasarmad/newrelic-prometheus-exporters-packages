@@ -6,9 +6,9 @@ services:
         image: aerospike/aerospike-prometheus-exporter
         container_name: aerospike-prometheus-exporter
         ports:
-            - "3000:3000/udp"
-        volumes:
-            - ./aerospike-prometheus-exporter/:/etc/aerospike
+            - "9145:9145/tcp"
+        #volumes:
+        #    - ./aerospike-prometheus-exporter/:/etc/aerospike
         networks:
             vpcbr:
                 ipv4_address: 10.5.0.2

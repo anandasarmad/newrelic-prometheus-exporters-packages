@@ -4,11 +4,10 @@ description: |
 scenarios:
   - description: |
       This scenario will verify that metrics from aerospike prometheus exporter are correcly collected.
-    before:
-    # prerequisite to have go language installed before building the binary
-      - docker-compose up -d
-    after:
-      - docker-compose down -v
+    #before:
+    #  - docker-compose up -d
+    #after:
+    #  - docker-compose down -v
     integrations:
       - name: nri-aerospike
         binary_path: ../target/bin/nri-aerospike
@@ -22,13 +21,13 @@ scenarios:
       nrqls:
         - query: "SELECT latest(aerospike_node_stats_client_connections) FROM Metric"
       entities:
-        - type: "CLIENT_CONNECTIONS"
+        - type: "AEROSPIKE_CLIENT_CONNECTIONS"
           data_type: "Metric"
           metric_name: "aerospike_node_stats_client_connections"
       metrics:
         - source: "aerospike.yml"
           except_entities:
-            - CLIENT_CONNECTIONS
+            - AEROSPIKE_CLIENT_CONNECTIONS
           except_metrics:
             - aerospike_node_stats_client_connections_opened
             - aerospike_node_stats_client_connections_closed
