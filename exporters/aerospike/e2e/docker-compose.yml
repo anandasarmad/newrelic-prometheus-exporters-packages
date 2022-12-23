@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+
+    aerospike-prometheus-exporter:
+        image: aerospike/aerospike-prometheus-exporter
+        container_name: aerospike-prometheus-exporter
+        ports:
+            - "3000:3000/udp"
+        volumes:
+            - ./aerospike-prometheus-exporter/:/etc/aerospike
+        networks:
+            vpcbr:
+                ipv4_address: 10.5.0.2
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1

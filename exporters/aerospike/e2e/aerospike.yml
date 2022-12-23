@@ -3,7 +3,7 @@ owningTeam: integrations
 integrationName: aerospike
 humanReadableIntegrationName: Aerospike
 entities:
-  - entityType: CLIENT_CONNECTIONS
+  - entityType: AEROSPIKE_CLIENT_CONNECTIONS
     metrics:
       - name: aerospike_node_stats_client_connections
         type: guage
