@@ -4,16 +4,16 @@ description: |
 scenarios:
   - description: |
       This scenario will verify that metrics from aerospike prometheus exporter are correcly collected.
-    #before:
-    #  - docker-compose up -d
-    #after:
-    #  - docker-compose down -v
+    before:
+      - docker-compose up -d
+    after:
+      - docker-compose down -v
     integrations:
       - name: nri-aerospike
         binary_path: ../target/bin/nri-aerospike
         exporter_binary_path: ../target/bin/aerospike-exporter
         config:
-          aerospike_host: localhost
+          aerospike_host: aerospike
           aerospike_port: 3000
           exporter_port: 9145
           #api_key: authoritative-secret
