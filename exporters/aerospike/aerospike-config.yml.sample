@@ -2,11 +2,11 @@ integrations:
     - name: nri-aerospike
       config:
         # API URL of the aerospike service
-        aerospike_host: localhost
+        aerospike_host: aerospike-server
         aerospike_port: 3000
 
         # Port to expose scrape endpoint on, If this is not provided a random port will be used to launch the exporter
-        exporter_port: 9145
+        exporter_port: 9045
 
         exporter_files_path: /tmp
 

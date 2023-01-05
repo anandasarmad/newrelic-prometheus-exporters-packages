@@ -15,7 +15,7 @@ scenarios:
         config:
           aerospike_host: aerospike
           aerospike_port: 3000
-          exporter_port: 9145
+          exporter_port: 9045
           #api_key: authoritative-secret
     tests:
       nrqls:
