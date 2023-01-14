@@ -1,5 +1,5 @@
-#failed_best_practices=true
-aerospike_cluster_size{proto="tcp"} 1
+#failed_best_practices true
+aerospike_cluster_size 1
 #cluster_key 577A19970B54
 aerospike_cluster_generation 1
 #cluster_principal BB9020011AC4202

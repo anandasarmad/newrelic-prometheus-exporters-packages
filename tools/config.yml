@@ -1,14 +1,10 @@
-integrationName: powerdns
-humanReadableIntegrationName: PowerDNS
+integrationName: aerospike
+humanReadableIntegrationName: Aerospike
 definitions:
-  - type: POWERDNS_AUTHORITATIVE
+  - type: AEROSPIKE_INSTANCE
     conditions:
       - attribute: metricName
-        prefix: powerdns_authoritative_
-  - type: POWERDNS_RECURSOR
-    conditions:
-      - attribute: metricName
-        prefix: powerdns_recursor_
+        prefix: aerospike_
   - type: NOT_MATCHING
     conditions:
       - attribute: metricName

@@ -1,0 +1,46 @@
+integrations:
+  - name: nri-prometheus
+    config:
+      # When standalone is set to false nri-prometheus requires an infrastructure agent to work and send data. Defaults to true
+      standalone: false
+
+      # When running with infrastructure agent emitters will have to include infra-sdk
+      emitters: infra-sdk
+
+      # The name of your cluster. It's important to match other New Relic products to relate the data.
+      cluster_name: "aerospike_exporter"
+
+      targets:
+      #  - description: Secure etcd example
+        urls: ["http://localhost:9045"]
+      #    tls_config:
+      #      ca_file_path: "/etc/etcd/etcd-client-ca.crt"
+      #      cert_file_path: "/etc/etcd/etcd-client.crt"
+      #      key_file_path: "/etc/etcd/etcd-client.key"
+
+      # Whether the integration should run in verbose mode or not. Defaults to false.
+      verbose: false
+
+      # Whether the integration should run in audit mode or not. Defaults to false.
+      # Audit mode logs the uncompressed data sent to New Relic. Use this to log all data sent.
+      # It does not include verbose mode. This can lead to a high log volume, use with care.
+      audit: false
+
+      # The HTTP client timeout when fetching data from endpoints. Defaults to 30s.
+      # scrape_timeout: "30s"
+
+      # Length in time to distribute the scraping from the endpoints.
+      scrape_duration: "5s"
+
+      # Number of worker threads used for scraping targets.
+      # For large clusters with many (>400) endpoints, slowly increase until scrape
+      # time falls between the desired `scrape_duration`.
+      # Increasing this value too much will result in huge memory consumption if too
+      # many metrics are being scraped.
+      # Default: 4
+      # worker_threads: 4
+
+      # Whether the integration should skip TLS verification or not. Defaults to false.
+      insecure_skip_verify: false
+
+    timeout: 10s

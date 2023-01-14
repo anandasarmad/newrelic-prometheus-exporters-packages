@@ -13,17 +13,16 @@ scenarios:
         binary_path: ../target/bin/nri-aerospike
         exporter_binary_path: ../target/bin/aerospike-exporter
         config:
-          aerospike_host: aerospike
+          aerospike_host: aerospike-server
           aerospike_port: 3000
-          exporter_port: 9045
-          #api_key: authoritative-secret
+          exporter_port: 9091
     tests:
       nrqls:
-        - query: "SELECT latest(aerospike_node_stats_client_connections) FROM Metric"
+        - query: "FROM Metric SELECT count(*) WHERE job LIKE '%aerospike%' and metricName LIKE '%aerospike_node_ticks%' SINCE 1 week ago TIMESERIES"
       entities:
         - type: "AEROSPIKE_CLIENT_CONNECTIONS"
           data_type: "Metric"
-          metric_name: "aerospike_node_stats_client_connections"
+          metric_name: "aerospike_node_ticks"
       metrics:
         - source: "aerospike.yml"
           except_entities:
